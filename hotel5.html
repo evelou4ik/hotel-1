@@ -385,6 +385,22 @@
         overflow: hidden;
       }
 
+      .gallery.stretch .gallery__grid {
+        grid-template-columns: 59.5rem 1fr;
+      }
+
+      .gallery.single .gallery__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery.single .gallery__grid .slide-image {
+        cursor: default;
+      }
+
+      .gallery.single .gallery__btn {
+        display: none;
+      }
+
       .gallery__item {
         border-radius: 1rem;
         overflow: hidden;
@@ -3071,7 +3087,9 @@
             </li>
           </ul>
         </div>
-        <div class="gallery slider-images " id="product_gallery">
+        <div
+          class="gallery slider-images "
+          id="product_gallery">
           <div class="gallery__grid"></div>
           <button class="gallery__btn">
             <span>
@@ -3406,7 +3424,8 @@
                 </li> -->
               </ul>
             </section>
-            <section class="rooms border-bottom border-gray ">
+            <section
+              class="rooms border-bottom border-gray ">
               <h2>Rooms at this hotel</h2>
               <ul class="rooms__list">
                 <li class="rooms__item room">
@@ -3670,7 +3689,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -3794,7 +3815,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -4122,7 +4145,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -4246,7 +4271,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -4370,7 +4397,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -4902,7 +4931,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -5230,7 +5261,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -5762,7 +5795,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -5886,7 +5921,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -6010,7 +6047,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -6608,7 +6647,8 @@
                 </li> -->
               </ul>
             </section>
-            <section class="points border-bottom border-gray ">
+            <section
+              class="points border-bottom border-gray ">
               <div class="points__content_wrapper">
                 <!-- <div class="points__item">
                   <h2>General Facilites</h2>
@@ -8801,9 +8841,7 @@
                   </span>
                   <div class="locations__title_wrapper">
                     <h3>Location</h3>
-                    <span
-                      >Corso Mazzini 41 B, Ragusa</span
-                    >
+                    <span>Corso Mazzini 41 B, Ragusa</span>
                   </div>
                 </li>
                 <li class="locations__list_item">
@@ -8890,7 +8928,8 @@
                     <span>Prices from £200 / night</span>
                   </div>
                 </li> -->
-                <li class="locations__list_item ">
+                <li
+                  class="locations__list_item ">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -11270,7 +11309,7 @@
       const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f4&#x2F;d3&#x2F;f4d38c553352685390b2fd99f383c47631a75d82.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b5&#x2F;d5&#x2F;b5d5f752700b81c179cd22ace6039e334a2d4e21.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;47&#x2F;d1&#x2F;47d181c2f8057e2ba5bad99876c23543fa2b0df9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;e3&#x2F;e5&#x2F;e3e5cebabaa961f361d8f8791eb26c801cbd179f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;4c&#x2F;8c&#x2F;4c8c1b0fd188b7adc0404938a87d76e50461ed99.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;29&#x2F;b3&#x2F;29b3e4df095fc8e11c8d5c91adaa6c5ec1e245b6.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;29&#x2F;52&#x2F;2952141e4a3728ad13f0cc9c254ce4cba196026c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;0d&#x2F;e6&#x2F;0de630968d3299b68a60ebed415696e0135adfe0.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;57&#x2F;a9&#x2F;57a91561f572d38bc435233cb907e3229f6baaa0.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;7b&#x2F;86&#x2F;7b865eef2ecc13bbdb680dc1898e0ccc5f314e42.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;aa&#x2F;e8&#x2F;aae80c60e2a8838cb02be1fff304c8ca8ef7a67d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;9a&#x2F;48&#x2F;9a4865f39f554e4024ef52b94b4d73d091ab3a8f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;d2&#x2F;11&#x2F;d21158f3608746f295a11cf546aff0fdfdd8c859.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;7d&#x2F;7f&#x2F;7d7f28ac0d0fc2c90ae7bd518f5fee5be4b3e7db.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cb&#x2F;dd&#x2F;cbdd33301f6848164f291ccbabea2587ebdf3759.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;46&#x2F;ce&#x2F;46cedccd6140fbd3344957f9d078917ec9f551f9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;0e&#x2F;4b&#x2F;0e4bf8b4d74171a044d8f86e2e37dec7d859bcd3.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8d&#x2F;zz&#x2F;8dad23964f222b3da33996a0e11bcf05a4152ca9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;20&#x2F;c7&#x2F;20c79ae5731345774bbb5c135be268611aa1356d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f5&#x2F;aa&#x2F;f5aaa47c564c7e29cf761a6e842c2112816a6283.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;78&#x2F;21&#x2F;7821dc4810b4c3416313efa33ad18aa7d9621a6e.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;98&#x2F;a3&#x2F;98a3a2b18fbf3bcd997512289f41e4f233c9b707.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b5&#x2F;8a&#x2F;b58a4610465d1af567cd83ba4a8e2c52e3977901.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;e8&#x2F;ac&#x2F;e8acf4a604176c23f589cc16c39927e304532a6d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8f&#x2F;9d&#x2F;8f9d9613343c6a9eefbff2cf21ee987a55647937.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f0&#x2F;92&#x2F;f09231a376913ab838f695e1e1c5b28d9f6514f8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;32&#x2F;ac&#x2F;32ac4448d00444bc2dd3aa7693ba88e5cbc09ae1.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;22&#x2F;02&#x2F;22026f826aa0c91393a5368c157b63fb4e9e3355.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;4a&#x2F;97&#x2F;4a970f54117713805b602054bc7f5dcaa5c29b8c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;4d&#x2F;33&#x2F;4d33506501520d8936c6d8fdb8bc04cde73a1313.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;17&#x2F;52&#x2F;17529f390df25fb43573c5884ca73c14d83499cd.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;e3&#x2F;f9&#x2F;e3f977aac718f0bd809ac4213f5b0a8dd7fdc21a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f0&#x2F;95&#x2F;f09510eef30314f22520a529ae0dbae1bd7b0f44.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;0a&#x2F;23&#x2F;0a231af4398f05ccc2b0d57c0852af74abb4547b.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cb&#x2F;e8&#x2F;cbe814ae6aa5fd524c5d294edac3b78b2d0208a8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cc&#x2F;0e&#x2F;cc0e19c330b2316dc148cac4880065c74fa129bd.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;09&#x2F;fc&#x2F;09fcc6395f5e847906076ecc42a9cb5ea46495aa.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cd&#x2F;da&#x2F;cdda265054e38ef9c4f19e7335ce143bb3379e52.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f0&#x2F;fb&#x2F;f0fbfebf37ca34f911eca5531a957050d1220dc4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;05&#x2F;5b&#x2F;055babbc3a6077d6d089f4f7783cf296106d8387.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;80&#x2F;e9&#x2F;80e961705bbd8d62ad99f335136280a3229b35ca.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;49&#x2F;48&#x2F;4948ce401eeab18dae0a602a89b746c3d9d7ebc8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;c3&#x2F;e1&#x2F;c3e125cf27ce374ab1c99da10725f09b056cf5e9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;78&#x2F;be&#x2F;78be8e0ef94cad4fed7670f2523f532d3920866a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;a2&#x2F;69&#x2F;a26955a72d7b30995db1acbae5e09fd43c38d591.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;08&#x2F;b0&#x2F;08b0a38778ffafb3d207cc63a601f95ecc6e1cb8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;95&#x2F;d7&#x2F;95d7e8a6d4cac93f0d41e8b87c91270a71594b86.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;ec&#x2F;70&#x2F;ec70acb33d24794a524684763797cd9d49c187c2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;c5&#x2F;5f&#x2F;c55f4dc79fed4ecddb1709fc7f856083ce6f4b9f.jpeg",];
 
       const modifiedImageUrls = imageUrls.map(url => url.replace(/{size}/g, "1024x768"));
-  
+
       modifiedImageUrls.forEach(url => {
         const galleryItemHtml = `
           <div class="gallery__item">
@@ -11283,7 +11322,17 @@
         `;
 
         galleryContainer.insertAdjacentHTML("beforeend", galleryItemHtml);
-      });
+       });
+
+      const galleryItemsLength = galleryContainer.querySelectorAll(".gallery__item").length;
+
+      if(galleryItemsLength === 1) {
+         galleryContainer.closest(".gallery").classList.add("single")
+      }
+
+      if(galleryItemsLength > 1 && galleryItemsLength < 4) {
+        galleryContainer.closest(".gallery").classList.add("stretch")
+      }
     </script>
     <script>
       const productCarousel = document.querySelector(".product-carousel");
@@ -11377,16 +11426,20 @@
               .closest(".slider-images")
               .querySelectorAll(".slide-image");
 
-            currentImageIndex = Array.from(images).indexOf(image);
+            if (images.length > 1) {
+              currentImageIndex = Array.from(images).indexOf(image);
 
-            showProductSlider(images, "product-carousel");
+              showProductSlider(images, "product-carousel");
 
-            scrollProductCarouselAmount =
-              productCarouselSlider.clientWidth * currentImageIndex;
-            updateProductCarouselButtons();
-            productCarouselSlider.scrollTo({
-              left: scrollProductCarouselAmount,
-            });
+              scrollProductCarouselAmount =
+                productCarouselSlider.clientWidth * currentImageIndex;
+
+              updateProductCarouselButtons();
+
+              productCarouselSlider.scrollTo({
+                left: scrollProductCarouselAmount,
+              });
+            }
           });
         });
 

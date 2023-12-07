@@ -385,6 +385,22 @@
         overflow: hidden;
       }
 
+      .gallery.stretch .gallery__grid {
+        grid-template-columns: 59.5rem 1fr;
+      }
+
+      .gallery.single .gallery__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery.single .gallery__grid .slide-image {
+        cursor: default;
+      }
+
+      .gallery.single .gallery__btn {
+        display: none;
+      }
+
       .gallery__item {
         border-radius: 1rem;
         overflow: hidden;
@@ -3071,7 +3087,9 @@
             </li>
           </ul>
         </div>
-        <div class="gallery slider-images " id="product_gallery">
+        <div
+          class="gallery slider-images "
+          id="product_gallery">
           <div class="gallery__grid"></div>
           <button class="gallery__btn">
             <span>
@@ -3406,7 +3424,8 @@
                 </li> -->
               </ul>
             </section>
-            <section class="rooms border-bottom border-gray ">
+            <section
+              class="rooms border-bottom border-gray ">
               <h2>Rooms at this hotel</h2>
               <ul class="rooms__list">
                 <li class="rooms__item room">
@@ -3874,7 +3893,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -3998,7 +4019,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -4326,7 +4349,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -5062,7 +5087,9 @@
                                 stroke-linejoin="round" />
                             </svg>
                           </span>
-                          <span class="room__text">full double bed</span>
+                          <span class="room__text"
+                            >full double bed</span
+                          >
                         </li>
                         <!-- <li>
                           <span>
@@ -6680,7 +6707,8 @@
                 </li> -->
               </ul>
             </section>
-            <section class="points border-bottom border-gray ">
+            <section
+              class="points border-bottom border-gray ">
               <div class="points__content_wrapper">
                 <!-- <div class="points__item">
                   <h2>General Facilites</h2>
@@ -9142,9 +9170,7 @@
                   </span>
                   <div class="locations__title_wrapper">
                     <h3>Location</h3>
-                    <span
-                      >6 Soundview Drive, Montauk</span
-                    >
+                    <span>6 Soundview Drive, Montauk</span>
                   </div>
                 </li>
                 <li class="locations__list_item">
@@ -9231,7 +9257,8 @@
                     <span>Prices from £200 / night</span>
                   </div>
                 </li> -->
-                <li class="locations__list_item ">
+                <li
+                  class="locations__list_item ">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -11611,7 +11638,7 @@
       const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;66&#x2F;30&#x2F;66307b87d35325bf528c0c2a5486492e74f6bccf.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;d3&#x2F;a9&#x2F;d3a9bffe234227211454ede180dc89c5deed221d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;65&#x2F;51&#x2F;6551576679b065abffdde7253a00b76ecd99555a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;a2&#x2F;f9&#x2F;a2f9554bcab507731aa284ef087de2baf76902fd.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cf&#x2F;2e&#x2F;cf2eaa5bf7882f7066eca1c48e6f674d7d23e493.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;13&#x2F;ed&#x2F;13edc07d0949cd06bec6378e53129c379cde8b7c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;1e&#x2F;2b&#x2F;1e2ba20a385ebe9429310c8de66bdedfd1d6b7b4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;50&#x2F;fe&#x2F;50fe0c450783b18d4f50fc41a7e30a22e2ece463.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;c0&#x2F;19&#x2F;c0197454430d0908b056b85ab5594a75773f40a7.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;14&#x2F;45&#x2F;14458ef90bb30c440554b6a6f6ee93fbcff6d2f2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;63&#x2F;cb&#x2F;63cbea11b57d95e642d7bb88b4d0282496cd7ab4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;12&#x2F;11&#x2F;121173aa28db4d91957739ce7f4447573c94e8b5.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;c0&#x2F;b4&#x2F;c0b44d9041833c8f5eaf4237c3c8f6e90115afa4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;fb&#x2F;a7&#x2F;fba7122eed07b8df47be1b0c261ca1899f1fa8b5.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;3b&#x2F;bc&#x2F;3bbcd57533163cbeec361c627b1a2a4213e0d5d0.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;ce&#x2F;f7&#x2F;cef732e10d785302237a9581899a4c5198f98c89.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;18&#x2F;81&#x2F;1881baa08a7b8f48d657cf7f44df15d3373ef4f5.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;53&#x2F;23&#x2F;5323ad7f29ac75bcdd501ff7f940aed218f13382.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;53&#x2F;3c&#x2F;533c15e8e85aa268688701b7560fb204ac7eb02f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;99&#x2F;42&#x2F;99429276fa8505dbf8834efeb6672b7bedf5a33a.jpeg",];
 
       const modifiedImageUrls = imageUrls.map(url => url.replace(/{size}/g, "1024x768"));
-  
+
       modifiedImageUrls.forEach(url => {
         const galleryItemHtml = `
           <div class="gallery__item">
@@ -11624,7 +11651,17 @@
         `;
 
         galleryContainer.insertAdjacentHTML("beforeend", galleryItemHtml);
-      });
+       });
+
+      const galleryItemsLength = galleryContainer.querySelectorAll(".gallery__item").length;
+
+      if(galleryItemsLength === 1) {
+         galleryContainer.closest(".gallery").classList.add("single")
+      }
+
+      if(galleryItemsLength > 1 && galleryItemsLength < 4) {
+        galleryContainer.closest(".gallery").classList.add("stretch")
+      }
     </script>
     <script>
       const productCarousel = document.querySelector(".product-carousel");
@@ -11718,16 +11755,20 @@
               .closest(".slider-images")
               .querySelectorAll(".slide-image");
 
-            currentImageIndex = Array.from(images).indexOf(image);
+            if (images.length > 1) {
+              currentImageIndex = Array.from(images).indexOf(image);
 
-            showProductSlider(images, "product-carousel");
+              showProductSlider(images, "product-carousel");
 
-            scrollProductCarouselAmount =
-              productCarouselSlider.clientWidth * currentImageIndex;
-            updateProductCarouselButtons();
-            productCarouselSlider.scrollTo({
-              left: scrollProductCarouselAmount,
-            });
+              scrollProductCarouselAmount =
+                productCarouselSlider.clientWidth * currentImageIndex;
+
+              updateProductCarouselButtons();
+
+              productCarouselSlider.scrollTo({
+                left: scrollProductCarouselAmount,
+              });
+            }
           });
         });
 

@@ -385,6 +385,22 @@
         overflow: hidden;
       }
 
+      .gallery.stretch .gallery__grid {
+        grid-template-columns: 59.5rem 1fr;
+      }
+
+      .gallery.single .gallery__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery.single .gallery__grid .slide-image {
+        cursor: default;
+      }
+
+      .gallery.single .gallery__btn {
+        display: none;
+      }
+
       .gallery__item {
         border-radius: 1rem;
         overflow: hidden;
@@ -3071,7 +3087,9 @@
             </li>
           </ul>
         </div>
-        <div class="gallery slider-images " id="product_gallery">
+        <div
+          class="gallery slider-images "
+          id="product_gallery">
           <div class="gallery__grid"></div>
           <button class="gallery__btn">
             <span>
@@ -3389,7 +3407,8 @@
                 </li> -->
               </ul>
             </section>
-            <section class="rooms border-bottom border-gray ">
+            <section
+              class="rooms border-bottom border-gray ">
               <h2>Rooms at this hotel</h2>
               <ul class="rooms__list">
                 <li class="rooms__item room">
@@ -3821,7 +3840,8 @@
                 </li> -->
               </ul>
             </section>
-            <section class="points border-bottom border-gray ">
+            <section
+              class="points border-bottom border-gray ">
               <div class="points__content_wrapper">
                 <!-- <div class="points__item">
                   <h2>General Facilites</h2>
@@ -5078,9 +5098,7 @@
                   </span>
                   <div class="locations__title_wrapper">
                     <h3>Location</h3>
-                    <span
-                      >Pangrango 23FL #23FJ Jl. Ciumbuleuit 125, Bandung</span
-                    >
+                    <span>Pangrango 23FL #23FJ Jl. Ciumbuleuit 125, Bandung</span>
                   </div>
                 </li>
                 <li class="locations__list_item">
@@ -5167,7 +5185,8 @@
                     <span>Prices from £200 / night</span>
                   </div>
                 </li> -->
-                <li class="locations__list_item ">
+                <li
+                  class="locations__list_item ">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -7547,7 +7566,7 @@
       const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8d&#x2F;5c&#x2F;8d5c16eaeed16410ec84142206d4cb252b8ca6c4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;46&#x2F;71&#x2F;46711b6a2ecd845a1fbdb955dd8ca6cde47ed398.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;89&#x2F;2e&#x2F;892e26686af217791ece51b7c8242366e7621bbe.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;5f&#x2F;70&#x2F;5f70c7943ab92cf29e2601e68c28ed10cf452b92.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b4&#x2F;fb&#x2F;b4fb3a397b64f77b56bbd7a958882e0d033cc1e2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;be&#x2F;5d&#x2F;be5d166a5cc49a61bb4bb65c1772a081754798e8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;54&#x2F;a5&#x2F;54a519f6968dc0deb5830b36baf0d9e40da89966.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;30&#x2F;69&#x2F;306936e2bd04d50968a2fc83cd38dec9e5c1f897.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;72&#x2F;zz&#x2F;72ad811749392b3f09dd7898628be9d531946f5c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;e9&#x2F;69&#x2F;e96927072aa6f4e926e57ed4f1eace8c6cb2bae2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;19&#x2F;12&#x2F;19129c0bee1dc516b1045ace96116f4594d53edf.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;ce&#x2F;ed&#x2F;ceedb2fdc488f69b4b1b0211c3752fc14736b6a1.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b7&#x2F;86&#x2F;b78625bcb2528cc6c809c130d377fc7b26c28aa2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;2a&#x2F;32&#x2F;2a320ba34bd0fd11ac7392a360988f8de9852c8f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;19&#x2F;a7&#x2F;19a7d7be3df40d73457a6fd1d3629f8b4be3b54f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;0d&#x2F;91&#x2F;0d9147c358932646beb72ead102419ab08b75f20.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;55&#x2F;9c&#x2F;559c7e9333678ecb9b3f2a5884798f6e62055c63.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;6a&#x2F;14&#x2F;6a145ac0400e51617fccf9d0fe6535a60fbbb47a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8f&#x2F;da&#x2F;8fda22df4fa96880d07bffcb9ac004c58d627fed.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8c&#x2F;c3&#x2F;8cc3d06c84cb165fc751bec6ce888a3d6fb01703.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;3d&#x2F;83&#x2F;3d83561921566f557280596135ba7cfc3791c105.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;c8&#x2F;9b&#x2F;c89bb4077783fc17fe795afbfb13e383bc0730ce.jpeg",];
 
       const modifiedImageUrls = imageUrls.map(url => url.replace(/{size}/g, "1024x768"));
-  
+
       modifiedImageUrls.forEach(url => {
         const galleryItemHtml = `
           <div class="gallery__item">
@@ -7560,7 +7579,17 @@
         `;
 
         galleryContainer.insertAdjacentHTML("beforeend", galleryItemHtml);
-      });
+       });
+
+      const galleryItemsLength = galleryContainer.querySelectorAll(".gallery__item").length;
+
+      if(galleryItemsLength === 1) {
+         galleryContainer.closest(".gallery").classList.add("single")
+      }
+
+      if(galleryItemsLength > 1 && galleryItemsLength < 4) {
+        galleryContainer.closest(".gallery").classList.add("stretch")
+      }
     </script>
     <script>
       const productCarousel = document.querySelector(".product-carousel");
@@ -7654,16 +7683,20 @@
               .closest(".slider-images")
               .querySelectorAll(".slide-image");
 
-            currentImageIndex = Array.from(images).indexOf(image);
+            if (images.length > 1) {
+              currentImageIndex = Array.from(images).indexOf(image);
 
-            showProductSlider(images, "product-carousel");
+              showProductSlider(images, "product-carousel");
 
-            scrollProductCarouselAmount =
-              productCarouselSlider.clientWidth * currentImageIndex;
-            updateProductCarouselButtons();
-            productCarouselSlider.scrollTo({
-              left: scrollProductCarouselAmount,
-            });
+              scrollProductCarouselAmount =
+                productCarouselSlider.clientWidth * currentImageIndex;
+
+              updateProductCarouselButtons();
+
+              productCarouselSlider.scrollTo({
+                left: scrollProductCarouselAmount,
+              });
+            }
           });
         });
 

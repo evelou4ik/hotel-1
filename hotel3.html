@@ -385,6 +385,22 @@
         overflow: hidden;
       }
 
+      .gallery.stretch .gallery__grid {
+        grid-template-columns: 59.5rem 1fr;
+      }
+
+      .gallery.single .gallery__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery.single .gallery__grid .slide-image {
+        cursor: default;
+      }
+
+      .gallery.single .gallery__btn {
+        display: none;
+      }
+
       .gallery__item {
         border-radius: 1rem;
         overflow: hidden;
@@ -3071,7 +3087,9 @@
             </li>
           </ul>
         </div>
-        <div class="gallery slider-images " id="product_gallery">
+        <div
+          class="gallery slider-images "
+          id="product_gallery">
           <div class="gallery__grid"></div>
           <button class="gallery__btn">
             <span>
@@ -3406,7 +3424,8 @@
                 </li> -->
               </ul>
             </section>
-            <section class="rooms border-bottom border-gray ">
+            <section
+              class="rooms border-bottom border-gray ">
               <h2>Rooms at this hotel</h2>
               <ul class="rooms__list">
                 <li class="rooms__item room">
@@ -3838,7 +3857,8 @@
                 </li> -->
               </ul>
             </section>
-            <section class="points border-bottom border-gray ">
+            <section
+              class="points border-bottom border-gray ">
               <div class="points__content_wrapper">
                 <!-- <div class="points__item">
                   <h2>General Facilites</h2>
@@ -6732,9 +6752,7 @@
                   </span>
                   <div class="locations__title_wrapper">
                     <h3>Location</h3>
-                    <span
-                      >Contrada Scampati via Centonce 1013, 91011 Alcamo Marina, Italy, Alcamo</span
-                    >
+                    <span>Contrada Scampati via Centonce 1013, 91011 Alcamo Marina, Italy, Alcamo</span>
                   </div>
                 </li>
                 <li class="locations__list_item">
@@ -6821,7 +6839,8 @@
                     <span>Prices from £200 / night</span>
                   </div>
                 </li> -->
-                <li class="locations__list_item hidden">
+                <li
+                  class="locations__list_item hidden">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -9198,10 +9217,10 @@
     </script>
     <script>
       const galleryContainer = document.querySelector(".gallery__grid");
-      const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b4&#x2F;55&#x2F;b455122952caaecf89736e49f45d38cb83e1b993.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f8&#x2F;61&#x2F;f861ff7fb10d93fc001f2ed4a41955442bae594c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;af&#x2F;78&#x2F;af787201063a91fa43089eb55c3ea6e166b3a804.jpeg",];
+      const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b4&#x2F;55&#x2F;b455122952caaecf89736e49f45d38cb83e1b993.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f8&#x2F;61&#x2F;f861ff7fb10d93fc001f2ed4a41955442bae594c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;af&#x2F;78&#x2F;af787201063a91fa43089eb55c3ea6e166b3a804.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b4&#x2F;55&#x2F;b455122952caaecf89736e49f45d38cb83e1b993.jpeg",];
 
       const modifiedImageUrls = imageUrls.map(url => url.replace(/{size}/g, "1024x768"));
-  
+
       modifiedImageUrls.forEach(url => {
         const galleryItemHtml = `
           <div class="gallery__item">
@@ -9214,7 +9233,17 @@
         `;
 
         galleryContainer.insertAdjacentHTML("beforeend", galleryItemHtml);
-      });
+       });
+
+      const galleryItemsLength = galleryContainer.querySelectorAll(".gallery__item").length;
+
+      if(galleryItemsLength === 1) {
+         galleryContainer.closest(".gallery").classList.add("single")
+      }
+
+      if(galleryItemsLength > 1 && galleryItemsLength < 4) {
+        galleryContainer.closest(".gallery").classList.add("stretch")
+      }
     </script>
     <script>
       const productCarousel = document.querySelector(".product-carousel");
@@ -9308,16 +9337,20 @@
               .closest(".slider-images")
               .querySelectorAll(".slide-image");
 
-            currentImageIndex = Array.from(images).indexOf(image);
+            if (images.length > 1) {
+              currentImageIndex = Array.from(images).indexOf(image);
 
-            showProductSlider(images, "product-carousel");
+              showProductSlider(images, "product-carousel");
 
-            scrollProductCarouselAmount =
-              productCarouselSlider.clientWidth * currentImageIndex;
-            updateProductCarouselButtons();
-            productCarouselSlider.scrollTo({
-              left: scrollProductCarouselAmount,
-            });
+              scrollProductCarouselAmount =
+                productCarouselSlider.clientWidth * currentImageIndex;
+
+              updateProductCarouselButtons();
+
+              productCarouselSlider.scrollTo({
+                left: scrollProductCarouselAmount,
+              });
+            }
           });
         });
 
