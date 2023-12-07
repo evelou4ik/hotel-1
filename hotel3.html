@@ -164,7 +164,7 @@
       }
 
       .hidden {
-        display: none;
+        display: none !important;
       }
 
       .container {
@@ -929,7 +929,7 @@
         flex-direction: column;
       }
 
-      locations__title_wrapper .locations__title_wrapper p span {
+      .locations__title_wrapper p span {
         display: inline-flex;
       }
 
@@ -941,15 +941,16 @@
         color: var(--black-primary);
       }
 
-      .locations ul li {
+      .locations__list_item {
         display: flex;
+        margin: 1.3rem 0;
       }
 
-      .locations ul li:not(:last-child) {
+      .locations__list_item:not(:last-child) {
         margin-bottom: 2.7rem;
       }
 
-      .locations ul li span:first-child {
+      .locations__list_item span:first-child {
         margin-top: 0.2rem;
         margin-right: 1rem;
       }
@@ -1410,6 +1411,7 @@
       }
 
       .latest {
+        padding-top: 2.35rem;
         padding-bottom: 5.8rem;
       }
 
@@ -2431,7 +2433,7 @@
         }
 
         .offers {
-          padding: 2.7rem 0 4.7rem;
+          padding: 2.7rem 0 2.35rem;
         }
 
         .offers ul {
@@ -2644,12 +2646,12 @@
         .footer__top {
           justify-content: space-between;
           margin: 0;
-          gap: 2rem 3.8rem;
+          gap: 2rem;
           border-top: 1px solid var(--black-primary);
         }
 
         .footer__top_element {
-          flex-basis: calc(50% - 3.8rem);
+          flex-basis: calc(50% - 1rem);
           padding: 0;
         }
 
@@ -3062,7 +3064,7 @@
             </li>
           </ul>
         </div>
-        <div class="gallery slider-images" id="product_gallery">
+        <div class="gallery slider-images " id="product_gallery">
           <div class="gallery__grid"></div>
           <button class="gallery__btn">
             <span>
@@ -3397,7 +3399,7 @@
                 </li> -->
               </ul>
             </section>
-            <section class="rooms border-bottom border-gray">
+            <section class="rooms border-bottom border-gray ">
               <h2>Rooms at this hotel</h2>
               <ul class="rooms__list">
                 <li class="rooms__item room">
@@ -3829,7 +3831,7 @@
                 </li> -->
               </ul>
             </section>
-            <section class="points border-bottom border-gray">
+            <section class="points border-bottom border-gray ">
               <div class="points__content_wrapper">
                 <!-- <div class="points__item">
                   <h2>General Facilites</h2>
@@ -6700,8 +6702,8 @@
             </section>
             <section class="locations border-bottom border-gray">
               <h2>Important to know</h2>
-              <ul>
-                <li>
+              <ul class="locations__list">
+                <li class="locations__list_item">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -6724,12 +6726,11 @@
                   <div class="locations__title_wrapper">
                     <h3>Location</h3>
                     <span
-                      >Parc Oasis, 33 Hameau du Golfe, Gassin, 83580,
-                      Gassin</span
+                      >Contrada Scampati via Centonce 1013, 91011 Alcamo Marina, Italy, Alcamo</span
                     >
                   </div>
                 </li>
-                <li>
+                <li class="locations__list_item">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -6746,8 +6747,8 @@
                   </span>
                   <div class="locations__title_wrapper">
                     <h3>Check in and Check out times</h3>
-                    <span class="check_in">Check in until 2:00pm</span>
-                    <span class="check_out">Check out until 12pm</span>
+                    <span class="check_in"></span>
+                    <span class="check_out"></span>
                   </div>
                 </li>
                 <!-- <li>
@@ -6813,7 +6814,7 @@
                     <span>Prices from £200 / night</span>
                   </div>
                 </li> -->
-                <li>
+                <li class="locations__list_item hidden">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
