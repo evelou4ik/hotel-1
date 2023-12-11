@@ -245,7 +245,7 @@
         border-radius: 1rem;
         border: 1px solid var(--grey-200);
         color: var(--primary);
-        transition-property: background-color border-color color;
+        transition-property: background-color, border-color, color;
         transition-duration: var(--fast);
       }
 
@@ -253,7 +253,8 @@
         fill: currentColor;
       }
 
-      .search__button:hover {
+      .search__button:hover,
+      .search__button.active {
         background-color: var(--primary);
         border-color: transparent;
         color: var(--white);
@@ -824,7 +825,9 @@
         position: relative;
         border-radius: 1rem;
         margin-right: 3.55rem;
-        min-width: 33.3rem;
+        max-width: 33.3rem;
+        width: 100%;
+        height: 19.6rem;
       }
 
       .room__img_wrapper svg {
@@ -841,6 +844,7 @@
 
       .room__img_wrapper .slide-image {
         display: none;
+        object-fit: cover;
       }
 
       .room__img_wrapper .slide-image:nth-child(2) {
@@ -2096,6 +2100,106 @@
         margin-bottom: 0;
       }
 
+      .search__form {
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        top: 7rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: 100%;
+        transition-property: opacity, visibility;
+        transition-duration: var(--fast);
+        pointer-events: none;
+      }
+
+      .search__form_inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background-color: var(--white);
+        box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
+        border-radius: 1.6rem;
+        overflow: hidden;
+      }
+
+      .search__item:not(:last-child) {
+        margin-right: 1rem;
+      }
+
+      .search__item_content {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        padding: 1rem;
+        border-radius: 1rem;
+        border: 1px solid var(--grey-200);
+        height: 5rem;
+      }
+
+      .search__item_icon {
+        display: flex;
+        margin-right: 1rem;
+      }
+
+      .search__item_input {
+        width: 100%;
+        outline: none;
+        border: 0;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: var(--grey-500);
+      }
+
+      .search__item .clear {
+        visibility: hidden;
+        opacity: 0;
+        transition-property: visibility, opacity;
+        transition-duration: var(--fast);
+        pointer-events: none;
+      }
+
+      .search__item .clear.visible {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .search__item .clear span {
+        display: flex;
+      }
+
+      .search__form_submit {
+        min-width: 20rem;
+        height: 5rem;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        font-weight: 500;
+        color: var(--white);
+        background-color: var(--primary);
+        text-transform: uppercase;
+        border-radius: 1rem;
+        transition-property: background-color;
+        transition-duration: var(--fast);
+      }
+
+      .search__form_submit:hover {
+        background-color: var(--primary-hover);
+      }
+
+      .search__dropdown_result {
+        display: none;
+      }
+
+      .search__form.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+
       @media only screen and (max-width: 1199px) {
         html {
           font-size: 53%;
@@ -2547,6 +2651,16 @@
           margin-left: -3rem;
           width: 1.6rem;
           height: 1.6rem;
+        }
+
+        .search__form_inner {
+          flex-direction: column;
+        }
+
+        .search__item:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 1.5rem;
+          width: 100%;
         }
       }
 
@@ -3087,9 +3201,7 @@
             </li>
           </ul>
         </div>
-        <div
-          class="gallery slider-images "
-          id="product_gallery">
+        <div class="gallery slider-images" id="product_gallery">
           <div class="gallery__grid"></div>
           <button class="gallery__btn">
             <span>
@@ -3424,8 +3536,7 @@
                 </li> -->
               </ul>
             </section>
-            <section
-              class="rooms border-bottom border-gray ">
+            <section class="rooms border-bottom border-gray">
               <h2>Rooms at this hotel</h2>
               <ul class="rooms__list">
                 <li class="rooms__item room">
@@ -3442,24 +3553,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Single room</h3>
@@ -3544,24 +3677,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Triple room</h3>
@@ -3646,24 +3801,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Single room with balcony full double bed</h3>
@@ -3772,24 +3949,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Double room full double bed</h3>
@@ -3885,38 +4084,6 @@
                   </div>
                 </li>
                 <li class="rooms__item room">
-                  <div class="room__img_wrapper slider-images">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none">
-                      <path
-                        d="M11.125 2C9.83438 2 8.70438 2.555 8 3.49312C7.29562 2.555 6.16563 2 4.875 2C3.84764 2.00116 2.86269 2.40979 2.13624 3.13624C1.40979 3.86269 1.00116 4.84764 1 5.875C1 10.25 7.48688 13.7913 7.76312 13.9375C7.83594 13.9767 7.91732 13.9972 8 13.9972C8.08268 13.9972 8.16406 13.9767 8.23687 13.9375C8.51312 13.7913 15 10.25 15 5.875C14.9988 4.84764 14.5902 3.86269 13.8638 3.13624C13.1373 2.40979 12.1524 2.00116 11.125 2ZM8 12.925C6.85875 12.26 2 9.23063 2 5.875C2.00099 5.11281 2.30421 4.38212 2.84316 3.84316C3.38212 3.30421 4.11281 3.00099 4.875 3C6.09062 3 7.11125 3.6475 7.5375 4.6875C7.57517 4.77921 7.63925 4.85764 7.7216 4.91284C7.80396 4.96804 7.90086 4.99752 8 4.99752C8.09914 4.99752 8.19604 4.96804 8.2784 4.91284C8.36075 4.85764 8.42483 4.77921 8.4625 4.6875C8.88875 3.64562 9.90938 3 11.125 3C11.8872 3.00099 12.6179 3.30421 13.1568 3.84316C13.6958 4.38212 13.999 5.11281 14 5.875C14 9.22563 9.14 12.2594 8 12.925Z"
-                        fill="white" />
-                    </svg>
-                    <img
-                      class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                  </div>
                   <div class="room__content">
                     <h3>Other</h3>
                     <div class="room__details">
@@ -4000,24 +4167,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;2c&#x2F;71&#x2F;2c71f7938483f760b4b4c969ecadb756bb321700.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4a&#x2F;09&#x2F;4a094f92872d60561d2a842e8462afbb66d35c0e.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;83&#x2F;60&#x2F;836032d328337cecc9c560177ab3f780291241cb.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;34&#x2F;52&#x2F;3452899c2189052b2876c158172bfcdefa423eda.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;82&#x2F;57&#x2F;82570a274fd34d3a5ceb473643d785162b874b9b.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard room</h3>
@@ -4102,24 +4291,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;2c&#x2F;71&#x2F;2c71f7938483f760b4b4c969ecadb756bb321700.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4a&#x2F;09&#x2F;4a094f92872d60561d2a842e8462afbb66d35c0e.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;83&#x2F;60&#x2F;836032d328337cecc9c560177ab3f780291241cb.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;34&#x2F;52&#x2F;3452899c2189052b2876c158172bfcdefa423eda.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;82&#x2F;57&#x2F;82570a274fd34d3a5ceb473643d785162b874b9b.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Double room with balcony full double bed</h3>
@@ -4228,24 +4439,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;2c&#x2F;71&#x2F;2c71f7938483f760b4b4c969ecadb756bb321700.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4a&#x2F;09&#x2F;4a094f92872d60561d2a842e8462afbb66d35c0e.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;83&#x2F;60&#x2F;836032d328337cecc9c560177ab3f780291241cb.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;34&#x2F;52&#x2F;3452899c2189052b2876c158172bfcdefa423eda.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;82&#x2F;57&#x2F;82570a274fd34d3a5ceb473643d785162b874b9b.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Double room with balcony and with view full double bed</h3>
@@ -4354,24 +4587,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Double room with balcony and with city view full double bed</h3>
@@ -4480,24 +4735,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Single room with balcony and with city view</h3>
@@ -4582,24 +4859,67 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;0a&#x2F;23&#x2F;0a231af4398f05ccc2b0d57c0852af74abb4547b.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;40&#x2F;9e&#x2F;409eb86230c4d3ccabeb0afb31e915ca66619b8f.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;0e&#x2F;f2&#x2F;0ef2365327b5dc1817684059e07e2e87f24569f8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;f6&#x2F;8c&#x2F;f68ce935a396f67e23aeed1c7aeaf2525d64c930.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;6e&#x2F;2f&#x2F;6e2fa26e0b5821e34c692c140e9ec85855085ae5.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;9b&#x2F;0a&#x2F;9b0a4c0ef27bfad9a58faae486c3236e795d47d5.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;79&#x2F;a3&#x2F;79a3c5b7ea992de9f164f0eacbad738f632632c6.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;52&#x2F;8c&#x2F;528c90e3c540c6cb797fad0bddb68712793809f4.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;11&#x2F;32&#x2F;1132d88ef3b23f47f380e90954fbcffd4e6c7854.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>1 Bedroom Cottage with balcony</h3>
@@ -4684,24 +5004,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Triple room with balcony</h3>
@@ -4773,38 +5115,6 @@
                   </div>
                 </li>
                 <li class="rooms__item room">
-                  <div class="room__img_wrapper slider-images">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none">
-                      <path
-                        d="M11.125 2C9.83438 2 8.70438 2.555 8 3.49312C7.29562 2.555 6.16563 2 4.875 2C3.84764 2.00116 2.86269 2.40979 2.13624 3.13624C1.40979 3.86269 1.00116 4.84764 1 5.875C1 10.25 7.48688 13.7913 7.76312 13.9375C7.83594 13.9767 7.91732 13.9972 8 13.9972C8.08268 13.9972 8.16406 13.9767 8.23687 13.9375C8.51312 13.7913 15 10.25 15 5.875C14.9988 4.84764 14.5902 3.86269 13.8638 3.13624C13.1373 2.40979 12.1524 2.00116 11.125 2ZM8 12.925C6.85875 12.26 2 9.23063 2 5.875C2.00099 5.11281 2.30421 4.38212 2.84316 3.84316C3.38212 3.30421 4.11281 3.00099 4.875 3C6.09062 3 7.11125 3.6475 7.5375 4.6875C7.57517 4.77921 7.63925 4.85764 7.7216 4.91284C7.80396 4.96804 7.90086 4.99752 8 4.99752C8.09914 4.99752 8.19604 4.96804 8.2784 4.91284C8.36075 4.85764 8.42483 4.77921 8.4625 4.6875C8.88875 3.64562 9.90938 3 11.125 3C11.8872 3.00099 12.6179 3.30421 13.1568 3.84316C13.6958 4.38212 13.999 5.11281 14 5.875C14 9.22563 9.14 12.2594 8 12.925Z"
-                        fill="white" />
-                    </svg>
-                    <img
-                      class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                  </div>
                   <div class="room__content">
                     <h3>1 Bedroom Single Cottage with balcony</h3>
                     <div class="room__details">
@@ -4875,38 +5185,6 @@
                   </div>
                 </li>
                 <li class="rooms__item room">
-                  <div class="room__img_wrapper slider-images">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none">
-                      <path
-                        d="M11.125 2C9.83438 2 8.70438 2.555 8 3.49312C7.29562 2.555 6.16563 2 4.875 2C3.84764 2.00116 2.86269 2.40979 2.13624 3.13624C1.40979 3.86269 1.00116 4.84764 1 5.875C1 10.25 7.48688 13.7913 7.76312 13.9375C7.83594 13.9767 7.91732 13.9972 8 13.9972C8.08268 13.9972 8.16406 13.9767 8.23687 13.9375C8.51312 13.7913 15 10.25 15 5.875C14.9988 4.84764 14.5902 3.86269 13.8638 3.13624C13.1373 2.40979 12.1524 2.00116 11.125 2ZM8 12.925C6.85875 12.26 2 9.23063 2 5.875C2.00099 5.11281 2.30421 4.38212 2.84316 3.84316C3.38212 3.30421 4.11281 3.00099 4.875 3C6.09062 3 7.11125 3.6475 7.5375 4.6875C7.57517 4.77921 7.63925 4.85764 7.7216 4.91284C7.80396 4.96804 7.90086 4.99752 8 4.99752C8.09914 4.99752 8.19604 4.96804 8.2784 4.91284C8.36075 4.85764 8.42483 4.77921 8.4625 4.6875C8.88875 3.64562 9.90938 3 11.125 3C11.8872 3.00099 12.6179 3.30421 13.1568 3.84316C13.6958 4.38212 13.999 5.11281 14 5.875C14 9.22563 9.14 12.2594 8 12.925Z"
-                        fill="white" />
-                    </svg>
-                    <img
-                      class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                  </div>
                   <div class="room__content">
                     <h3>1 Bedroom Double Cottage with balcony full double bed</h3>
                     <div class="room__details">
@@ -5001,38 +5279,6 @@
                   </div>
                 </li>
                 <li class="rooms__item room">
-                  <div class="room__img_wrapper slider-images">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none">
-                      <path
-                        d="M11.125 2C9.83438 2 8.70438 2.555 8 3.49312C7.29562 2.555 6.16563 2 4.875 2C3.84764 2.00116 2.86269 2.40979 2.13624 3.13624C1.40979 3.86269 1.00116 4.84764 1 5.875C1 10.25 7.48688 13.7913 7.76312 13.9375C7.83594 13.9767 7.91732 13.9972 8 13.9972C8.08268 13.9972 8.16406 13.9767 8.23687 13.9375C8.51312 13.7913 15 10.25 15 5.875C14.9988 4.84764 14.5902 3.86269 13.8638 3.13624C13.1373 2.40979 12.1524 2.00116 11.125 2ZM8 12.925C6.85875 12.26 2 9.23063 2 5.875C2.00099 5.11281 2.30421 4.38212 2.84316 3.84316C3.38212 3.30421 4.11281 3.00099 4.875 3C6.09062 3 7.11125 3.6475 7.5375 4.6875C7.57517 4.77921 7.63925 4.85764 7.7216 4.91284C7.80396 4.96804 7.90086 4.99752 8 4.99752C8.09914 4.99752 8.19604 4.96804 8.2784 4.91284C8.36075 4.85764 8.42483 4.77921 8.4625 4.6875C8.88875 3.64562 9.90938 3 11.125 3C11.8872 3.00099 12.6179 3.30421 13.1568 3.84316C13.6958 4.38212 13.999 5.11281 14 5.875C14 9.22563 9.14 12.2594 8 12.925Z"
-                        fill="white" />
-                    </svg>
-                    <img
-                      class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                  </div>
                   <div class="room__content">
                     <h3>1 Bedroom Single Cottage with balcony</h3>
                     <div class="room__details">
@@ -5116,24 +5362,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;2c&#x2F;71&#x2F;2c71f7938483f760b4b4c969ecadb756bb321700.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4a&#x2F;09&#x2F;4a094f92872d60561d2a842e8462afbb66d35c0e.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;83&#x2F;60&#x2F;836032d328337cecc9c560177ab3f780291241cb.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;34&#x2F;52&#x2F;3452899c2189052b2876c158172bfcdefa423eda.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;82&#x2F;57&#x2F;82570a274fd34d3a5ceb473643d785162b874b9b.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Single room</h3>
@@ -5218,24 +5486,60 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ac&#x2F;02&#x2F;ac028faf77b9f8c23e24f41f1a799b934b510d63.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;9a&#x2F;48&#x2F;9a4865f39f554e4024ef52b94b4d73d091ab3a8f.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3d&#x2F;d3&#x2F;3dd3d96618f6664a249b9341380813300c4d4d48.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;a8&#x2F;f5&#x2F;a8f5de99240ca0f90732adb4c7376c6046030bec.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;40&#x2F;2a&#x2F;402abe98da42566f9de613c5955151febde3cab0.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;97&#x2F;0c&#x2F;970cb9048f9103e67cb35880e41a79fd86967885.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;34&#x2F;52&#x2F;3452899c2189052b2876c158172bfcdefa423eda.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;82&#x2F;57&#x2F;82570a274fd34d3a5ceb473643d785162b874b9b.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Double room full double bed</h3>
@@ -5344,24 +5648,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard room</h3>
@@ -5446,24 +5772,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard room with balcony</h3>
@@ -5548,24 +5896,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;2c&#x2F;71&#x2F;2c71f7938483f760b4b4c969ecadb756bb321700.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4a&#x2F;09&#x2F;4a094f92872d60561d2a842e8462afbb66d35c0e.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;83&#x2F;60&#x2F;836032d328337cecc9c560177ab3f780291241cb.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;34&#x2F;52&#x2F;3452899c2189052b2876c158172bfcdefa423eda.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;82&#x2F;57&#x2F;82570a274fd34d3a5ceb473643d785162b874b9b.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Triple room</h3>
@@ -5650,24 +6020,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Single room with balcony</h3>
@@ -5739,38 +6131,6 @@
                   </div>
                 </li>
                 <li class="rooms__item room">
-                  <div class="room__img_wrapper slider-images">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none">
-                      <path
-                        d="M11.125 2C9.83438 2 8.70438 2.555 8 3.49312C7.29562 2.555 6.16563 2 4.875 2C3.84764 2.00116 2.86269 2.40979 2.13624 3.13624C1.40979 3.86269 1.00116 4.84764 1 5.875C1 10.25 7.48688 13.7913 7.76312 13.9375C7.83594 13.9767 7.91732 13.9972 8 13.9972C8.08268 13.9972 8.16406 13.9767 8.23687 13.9375C8.51312 13.7913 15 10.25 15 5.875C14.9988 4.84764 14.5902 3.86269 13.8638 3.13624C13.1373 2.40979 12.1524 2.00116 11.125 2ZM8 12.925C6.85875 12.26 2 9.23063 2 5.875C2.00099 5.11281 2.30421 4.38212 2.84316 3.84316C3.38212 3.30421 4.11281 3.00099 4.875 3C6.09062 3 7.11125 3.6475 7.5375 4.6875C7.57517 4.77921 7.63925 4.85764 7.7216 4.91284C7.80396 4.96804 7.90086 4.99752 8 4.99752C8.09914 4.99752 8.19604 4.96804 8.2784 4.91284C8.36075 4.85764 8.42483 4.77921 8.4625 4.6875C8.88875 3.64562 9.90938 3 11.125 3C11.8872 3.00099 12.6179 3.30421 13.1568 3.84316C13.6958 4.38212 13.999 5.11281 14 5.875C14 9.22563 9.14 12.2594 8 12.925Z"
-                        fill="white" />
-                    </svg>
-                    <img
-                      class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                  </div>
                   <div class="room__content">
                     <h3>1 Bedroom Double Cottage with balcony and with city view full double bed</h3>
                     <div class="room__details">
@@ -5878,24 +6238,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;2c&#x2F;71&#x2F;2c71f7938483f760b4b4c969ecadb756bb321700.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4a&#x2F;09&#x2F;4a094f92872d60561d2a842e8462afbb66d35c0e.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;83&#x2F;60&#x2F;836032d328337cecc9c560177ab3f780291241cb.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;34&#x2F;52&#x2F;3452899c2189052b2876c158172bfcdefa423eda.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;82&#x2F;57&#x2F;82570a274fd34d3a5ceb473643d785162b874b9b.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard room full double bed</h3>
@@ -6004,24 +6386,53 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;99&#x2F;0a&#x2F;990adb3868eae77699ac437f0aca4149413c32ea.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;69&#x2F;d4&#x2F;69d436fbd76df2386062771ade0aff290495ee93.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4f&#x2F;e2&#x2F;4fe255eb424ff3a25dca47d7ba21b823594b89d8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;40&#x2F;a4&#x2F;40a4bf02ef4237b8d80c5c6407c41e1499a075cd.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;09&#x2F;73&#x2F;09730e1d63643b21017eac32c65a5829ef0cf300.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;bc&#x2F;45&#x2F;bc45475dcbf91f195e4ffe9eef70da1729e4e87c.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Double room with balcony full double bed</h3>
@@ -6130,24 +6541,46 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;03&#x2F;74&#x2F;0374e68816ccbde373c5d0e3f00b71d1a6a326c1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;b0&#x2F;b7b0bd10099784ff946a55957dba02efa898ba0d.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d7&#x2F;a1&#x2F;d7a175de550bca9693a8787cd45a9778f2ec5b14.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;c3&#x2F;57c31ee466fefce67af20c839e284a6cccf42ce9.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3c&#x2F;35&#x2F;3c350e04ce831fa99cf465f26ed0e2e42c6a3284.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8b&#x2F;39&#x2F;8b39797ee2edb9ffc1679d6db8f68de9555715e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard Single room with balcony</h3>
@@ -6219,38 +6652,6 @@
                   </div>
                 </li>
                 <li class="rooms__item room">
-                  <div class="room__img_wrapper slider-images">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none">
-                      <path
-                        d="M11.125 2C9.83438 2 8.70438 2.555 8 3.49312C7.29562 2.555 6.16563 2 4.875 2C3.84764 2.00116 2.86269 2.40979 2.13624 3.13624C1.40979 3.86269 1.00116 4.84764 1 5.875C1 10.25 7.48688 13.7913 7.76312 13.9375C7.83594 13.9767 7.91732 13.9972 8 13.9972C8.08268 13.9972 8.16406 13.9767 8.23687 13.9375C8.51312 13.7913 15 10.25 15 5.875C14.9988 4.84764 14.5902 3.86269 13.8638 3.13624C13.1373 2.40979 12.1524 2.00116 11.125 2ZM8 12.925C6.85875 12.26 2 9.23063 2 5.875C2.00099 5.11281 2.30421 4.38212 2.84316 3.84316C3.38212 3.30421 4.11281 3.00099 4.875 3C6.09062 3 7.11125 3.6475 7.5375 4.6875C7.57517 4.77921 7.63925 4.85764 7.7216 4.91284C7.80396 4.96804 7.90086 4.99752 8 4.99752C8.09914 4.99752 8.19604 4.96804 8.2784 4.91284C8.36075 4.85764 8.42483 4.77921 8.4625 4.6875C8.88875 3.64562 9.90938 3 11.125 3C11.8872 3.00099 12.6179 3.30421 13.1568 3.84316C13.6958 4.38212 13.999 5.11281 14 5.875C14 9.22563 9.14 12.2594 8 12.925Z"
-                        fill="white" />
-                    </svg>
-                    <img
-                      class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                    <img
-                      class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
-                  </div>
                   <div class="room__content">
                     <h3>1 Bedroom Triple Cottage with balcony</h3>
                     <div class="room__details">
@@ -6647,8 +7048,7 @@
                 </li> -->
               </ul>
             </section>
-            <section
-              class="points border-bottom border-gray ">
+            <section class="points border-bottom border-gray">
               <div class="points__content_wrapper">
                 <!-- <div class="points__item">
                   <h2>General Facilites</h2>
@@ -8928,8 +9328,7 @@
                     <span>Prices from £200 / night</span>
                   </div>
                 </li> -->
-                <li
-                  class="locations__list_item ">
+                <li class="locations__list_item">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -11015,6 +11414,7 @@
         <div class="container">
           <div class="footer__top">
             <div class="footer__top_element">
+              А
               <p class="footer__top_title">About Evendo</p>
               <ul>
                 <li>
@@ -11200,6 +11600,190 @@
         </div>
       </div>
     </footer>
+    <div class="search__form">
+      <div class="container">
+        <div class="search__form_inner">
+          <div class="search__form_item search__item">
+            <div class="search__item_content">
+              <span class="search__item_icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_447_3544)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M6.45283 1.83276C7.02474 0.457765 8.97395 0.457765 9.54586 1.83276L10.7462 4.7196L13.8612 4.96922C13.8612 4.96922 13.8613 4.96923 13.8612 4.96922C15.3467 5.08807 15.9486 6.94142 14.8173 7.91085L12.4438 9.94439L13.1684 12.9844C13.1684 12.9843 13.1684 12.9844 13.1684 12.9844C13.514 14.4337 11.9381 15.5789 10.667 14.8028L7.99935 13.1734L5.33189 14.8027C4.06045 15.5789 2.4847 14.4329 2.83025 12.9845C2.83023 12.9846 2.83027 12.9844 2.83025 12.9845L3.55491 9.94439L1.18144 7.91089C0.0501068 6.94146 0.651772 5.08808 2.13727 4.96924C2.13721 4.96924 2.13733 4.96923 2.13727 4.96924L5.25253 4.7196L6.45283 1.83276ZM5.80353 5.47801L2.20116 5.76668C1.42523 5.82868 1.11059 6.79668 1.70187 7.30335L4.44631 9.65468L3.60838 13.17C3.42773 13.9267 4.25099 14.5253 4.91494 14.12L7.99935 12.236L11.0838 14.12C11.7477 14.5253 12.571 13.9273 12.3903 13.17L11.5524 9.65468L14.2968 7.30335C14.8881 6.79668 14.5735 5.82868 13.7975 5.76668L10.1952 5.47801L8.80728 2.14001C8.50864 1.42201 7.49006 1.42201 7.19141 2.14001L5.80353 5.47801Z"
+                      fill="#8B8899" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_447_3544">
+                      <rect width="15.9987" height="16" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+
+              <input
+                class="search__item_input"
+                type="text"
+                autocomplete="off"
+                placeholder="What?"
+                id="search_input_what" />
+
+              <button class="clear">
+                <span>
+                  <svg
+                    width="28px"
+                    height="28px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g
+                      fill="#0000006b"
+                      fill-rule="evenodd"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      transform="translate(2 2)">
+                      <circle cx="8.5" cy="8.5" r="8" />
+                      <g transform="matrix(0 1 -1 0 17 0)">
+                        <path d="m5.5 11.5 6-6" />
+                        <path d="m5.5 5.5 6 6" />
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div class="search__dropdown_result">
+              <div class="categoryDropdown">
+                <input id="category-search" />
+              </div>
+            </div>
+          </div>
+
+          <div class="search__form_item search__item">
+            <div class="search__item_content">
+              <span class="search__item_icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.99951 7C9.99951 7.53043 9.7888 8.03914 9.41373 8.41421C9.03865 8.78929 8.52994 9 7.99951 9C7.46908 9 6.96037 8.78929 6.5853 8.41421C6.21023 8.03914 5.99951 7.53043 5.99951 7C5.99951 6.46957 6.21023 5.96086 6.5853 5.58579C6.96037 5.21071 7.46908 5 7.99951 5C8.52994 5 9.03865 5.21071 9.41373 5.58579C9.7888 5.96086 9.99951 6.46957 9.99951 7Z"
+                    stroke="#8B8899"
+                    stroke-width="0.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M12.9989 7C12.9989 11.7613 7.99934 14.5 7.99934 14.5C7.99934 14.5 2.99976 11.7613 2.99976 7C2.99976 5.67392 3.5265 4.40215 4.4641 3.46447C5.4017 2.52678 6.67337 2 7.99934 2C9.32531 2 10.597 2.52678 11.5346 3.46447C12.4722 4.40215 12.9989 5.67392 12.9989 7Z"
+                    stroke="#8B8899"
+                    stroke-width="0.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <input
+                class="search__item_input"
+                type="text"
+                autocomplete="off"
+                placeholder="Where?"
+                id="search_input_where" />
+              <button class="clear">
+                <span>
+                  <svg
+                    width="28px"
+                    height="28px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g
+                      fill="#0000006b"
+                      fill-rule="evenodd"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      transform="translate(2 2)">
+                      <circle cx="8.5" cy="8.5" r="8" />
+                      <g transform="matrix(0 1 -1 0 17 0)">
+                        <path d="m5.5 11.5 6-6" />
+                        <path d="m5.5 5.5 6 6" />
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </div>
+
+            <div class="locationContainer">
+              <div class="locationModal"></div>
+            </div>
+          </div>
+
+          <div class="search__form_item search__item">
+            <div class="search__item_content">
+              <span class="search__item_icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.49979 2V3.5M11.4992 2V3.5M2 12.5V5C2 4.60218 2.15802 4.22064 2.4393 3.93934C2.72058 3.65804 3.10208 3.5 3.49988 3.5H12.4991C12.8969 3.5 13.2784 3.65804 13.5597 3.93934C13.841 4.22064 13.999 4.60218 13.999 5V12.5M2 12.5C2 12.8978 2.15802 13.2794 2.4393 13.5607C2.72058 13.842 3.10208 14 3.49988 14H12.4991C12.8969 14 13.2784 13.842 13.5597 13.5607C13.841 13.2794 13.999 12.8978 13.999 12.5M2 12.5V7.5C2 7.10218 2.15802 6.72065 2.4393 6.43934C2.72058 6.15804 3.10208 6 3.49988 6H12.4991C12.8969 6 13.2784 6.15804 13.5597 6.43934C13.841 6.72065 13.999 7.10218 13.999 7.5V12.5M7.9995 8.5H8.00483V8.50533H7.9995V8.5ZM7.9995 10H8.00483V10.0053H7.9995V10ZM7.9995 11.5H8.00483V11.5053H7.9995V11.5ZM6.49963 10H6.50496V10.0053H6.49963V10ZM6.49963 11.5H6.50496V11.5053H6.49963V11.5ZM4.99975 10H5.00508V10.0053H4.99975V10ZM4.99975 11.5H5.00508V11.5053H4.99975V11.5ZM9.49938 8.5H9.50471V8.50533H9.49938V8.5ZM9.49938 10H9.50471V10.0053H9.49938V10ZM9.49938 11.5H9.50471V11.5053H9.49938V11.5ZM10.9993 8.5H11.0046V8.50533H10.9993V8.5ZM10.9993 10H11.0046V10.0053H10.9993V10Z"
+                    stroke="#8B8899"
+                    stroke-width="0.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+
+              <input
+                class="search__item_input"
+                type="text"
+                autocomplete="off"
+                id="search_input_calendar"
+                placeholder="When?" />
+
+              <button class="clear">
+                <span>
+                  <svg
+                    width="28px"
+                    height="28px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g
+                      fill="#0000006b"
+                      fill-rule="evenodd"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      transform="translate(2 2)">
+                      <circle cx="8.5" cy="8.5" r="8" />
+                      <g transform="matrix(0 1 -1 0 17 0)">
+                        <path d="m5.5 11.5 6-6" />
+                        <path d="m5.5 5.5 6 6" />
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <button
+            class="search__form_submit"
+            id="search_submit"
+            type="submit"
+            name="submit">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="product-carousel fix-block">
       <div class="product-carousel__wrapper">
         <button class="carousel_btn carousel_btn__prev carousel_btn__switch">
@@ -11302,22 +11886,24 @@
           .join(', ');
       };
 
-       payments.innerHTML = formatPaymentMethods(paymentMethods)
+      if(payments) {
+        payments.innerHTML = formatPaymentMethods(paymentMethods)
+      }
     </script>
     <script>
       const galleryContainer = document.querySelector(".gallery__grid");
-      const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f4&#x2F;d3&#x2F;f4d38c553352685390b2fd99f383c47631a75d82.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b5&#x2F;d5&#x2F;b5d5f752700b81c179cd22ace6039e334a2d4e21.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;47&#x2F;d1&#x2F;47d181c2f8057e2ba5bad99876c23543fa2b0df9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;e3&#x2F;e5&#x2F;e3e5cebabaa961f361d8f8791eb26c801cbd179f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;4c&#x2F;8c&#x2F;4c8c1b0fd188b7adc0404938a87d76e50461ed99.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;29&#x2F;b3&#x2F;29b3e4df095fc8e11c8d5c91adaa6c5ec1e245b6.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;29&#x2F;52&#x2F;2952141e4a3728ad13f0cc9c254ce4cba196026c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;0d&#x2F;e6&#x2F;0de630968d3299b68a60ebed415696e0135adfe0.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;57&#x2F;a9&#x2F;57a91561f572d38bc435233cb907e3229f6baaa0.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;7b&#x2F;86&#x2F;7b865eef2ecc13bbdb680dc1898e0ccc5f314e42.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;aa&#x2F;e8&#x2F;aae80c60e2a8838cb02be1fff304c8ca8ef7a67d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;9a&#x2F;48&#x2F;9a4865f39f554e4024ef52b94b4d73d091ab3a8f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;d2&#x2F;11&#x2F;d21158f3608746f295a11cf546aff0fdfdd8c859.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;7d&#x2F;7f&#x2F;7d7f28ac0d0fc2c90ae7bd518f5fee5be4b3e7db.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cb&#x2F;dd&#x2F;cbdd33301f6848164f291ccbabea2587ebdf3759.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;46&#x2F;ce&#x2F;46cedccd6140fbd3344957f9d078917ec9f551f9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;0e&#x2F;4b&#x2F;0e4bf8b4d74171a044d8f86e2e37dec7d859bcd3.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8d&#x2F;zz&#x2F;8dad23964f222b3da33996a0e11bcf05a4152ca9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;20&#x2F;c7&#x2F;20c79ae5731345774bbb5c135be268611aa1356d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f5&#x2F;aa&#x2F;f5aaa47c564c7e29cf761a6e842c2112816a6283.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;78&#x2F;21&#x2F;7821dc4810b4c3416313efa33ad18aa7d9621a6e.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;98&#x2F;a3&#x2F;98a3a2b18fbf3bcd997512289f41e4f233c9b707.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b5&#x2F;8a&#x2F;b58a4610465d1af567cd83ba4a8e2c52e3977901.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;e8&#x2F;ac&#x2F;e8acf4a604176c23f589cc16c39927e304532a6d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8f&#x2F;9d&#x2F;8f9d9613343c6a9eefbff2cf21ee987a55647937.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f0&#x2F;92&#x2F;f09231a376913ab838f695e1e1c5b28d9f6514f8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;32&#x2F;ac&#x2F;32ac4448d00444bc2dd3aa7693ba88e5cbc09ae1.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;22&#x2F;02&#x2F;22026f826aa0c91393a5368c157b63fb4e9e3355.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;4a&#x2F;97&#x2F;4a970f54117713805b602054bc7f5dcaa5c29b8c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;4d&#x2F;33&#x2F;4d33506501520d8936c6d8fdb8bc04cde73a1313.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;17&#x2F;52&#x2F;17529f390df25fb43573c5884ca73c14d83499cd.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;e3&#x2F;f9&#x2F;e3f977aac718f0bd809ac4213f5b0a8dd7fdc21a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f0&#x2F;95&#x2F;f09510eef30314f22520a529ae0dbae1bd7b0f44.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;0a&#x2F;23&#x2F;0a231af4398f05ccc2b0d57c0852af74abb4547b.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cb&#x2F;e8&#x2F;cbe814ae6aa5fd524c5d294edac3b78b2d0208a8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cc&#x2F;0e&#x2F;cc0e19c330b2316dc148cac4880065c74fa129bd.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;09&#x2F;fc&#x2F;09fcc6395f5e847906076ecc42a9cb5ea46495aa.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;cd&#x2F;da&#x2F;cdda265054e38ef9c4f19e7335ce143bb3379e52.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;f0&#x2F;fb&#x2F;f0fbfebf37ca34f911eca5531a957050d1220dc4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;05&#x2F;5b&#x2F;055babbc3a6077d6d089f4f7783cf296106d8387.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;80&#x2F;e9&#x2F;80e961705bbd8d62ad99f335136280a3229b35ca.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;49&#x2F;48&#x2F;4948ce401eeab18dae0a602a89b746c3d9d7ebc8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;c3&#x2F;e1&#x2F;c3e125cf27ce374ab1c99da10725f09b056cf5e9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;78&#x2F;be&#x2F;78be8e0ef94cad4fed7670f2523f532d3920866a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;a2&#x2F;69&#x2F;a26955a72d7b30995db1acbae5e09fd43c38d591.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;08&#x2F;b0&#x2F;08b0a38778ffafb3d207cc63a601f95ecc6e1cb8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;95&#x2F;d7&#x2F;95d7e8a6d4cac93f0d41e8b87c91270a71594b86.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;ec&#x2F;70&#x2F;ec70acb33d24794a524684763797cd9d49c187c2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;c5&#x2F;5f&#x2F;c55f4dc79fed4ecddb1709fc7f856083ce6f4b9f.jpeg",];
+      const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;f4&#x2F;d3&#x2F;f4d38c553352685390b2fd99f383c47631a75d82.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b5&#x2F;d5&#x2F;b5d5f752700b81c179cd22ace6039e334a2d4e21.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;47&#x2F;d1&#x2F;47d181c2f8057e2ba5bad99876c23543fa2b0df9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;e3&#x2F;e5&#x2F;e3e5cebabaa961f361d8f8791eb26c801cbd179f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4c&#x2F;8c&#x2F;4c8c1b0fd188b7adc0404938a87d76e50461ed99.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;29&#x2F;b3&#x2F;29b3e4df095fc8e11c8d5c91adaa6c5ec1e245b6.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;29&#x2F;52&#x2F;2952141e4a3728ad13f0cc9c254ce4cba196026c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;0d&#x2F;e6&#x2F;0de630968d3299b68a60ebed415696e0135adfe0.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;57&#x2F;a9&#x2F;57a91561f572d38bc435233cb907e3229f6baaa0.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;7b&#x2F;86&#x2F;7b865eef2ecc13bbdb680dc1898e0ccc5f314e42.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;aa&#x2F;e8&#x2F;aae80c60e2a8838cb02be1fff304c8ca8ef7a67d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ea&#x2F;19&#x2F;ea192f1eab83f376495ee76924a75d908bf984f3.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;9a&#x2F;48&#x2F;9a4865f39f554e4024ef52b94b4d73d091ab3a8f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;d2&#x2F;11&#x2F;d21158f3608746f295a11cf546aff0fdfdd8c859.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;7d&#x2F;7f&#x2F;7d7f28ac0d0fc2c90ae7bd518f5fee5be4b3e7db.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;cb&#x2F;dd&#x2F;cbdd33301f6848164f291ccbabea2587ebdf3759.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;46&#x2F;ce&#x2F;46cedccd6140fbd3344957f9d078917ec9f551f9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;0e&#x2F;4b&#x2F;0e4bf8b4d74171a044d8f86e2e37dec7d859bcd3.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8d&#x2F;zz&#x2F;8dad23964f222b3da33996a0e11bcf05a4152ca9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;20&#x2F;c7&#x2F;20c79ae5731345774bbb5c135be268611aa1356d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;f5&#x2F;aa&#x2F;f5aaa47c564c7e29cf761a6e842c2112816a6283.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;78&#x2F;21&#x2F;7821dc4810b4c3416313efa33ad18aa7d9621a6e.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;98&#x2F;a3&#x2F;98a3a2b18fbf3bcd997512289f41e4f233c9b707.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b5&#x2F;8a&#x2F;b58a4610465d1af567cd83ba4a8e2c52e3977901.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;e8&#x2F;ac&#x2F;e8acf4a604176c23f589cc16c39927e304532a6d.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8f&#x2F;9d&#x2F;8f9d9613343c6a9eefbff2cf21ee987a55647937.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;f0&#x2F;92&#x2F;f09231a376913ab838f695e1e1c5b28d9f6514f8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;32&#x2F;ac&#x2F;32ac4448d00444bc2dd3aa7693ba88e5cbc09ae1.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;22&#x2F;02&#x2F;22026f826aa0c91393a5368c157b63fb4e9e3355.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4a&#x2F;97&#x2F;4a970f54117713805b602054bc7f5dcaa5c29b8c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;4d&#x2F;33&#x2F;4d33506501520d8936c6d8fdb8bc04cde73a1313.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;17&#x2F;52&#x2F;17529f390df25fb43573c5884ca73c14d83499cd.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;e3&#x2F;f9&#x2F;e3f977aac718f0bd809ac4213f5b0a8dd7fdc21a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;f0&#x2F;95&#x2F;f09510eef30314f22520a529ae0dbae1bd7b0f44.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;0a&#x2F;23&#x2F;0a231af4398f05ccc2b0d57c0852af74abb4547b.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;cb&#x2F;e8&#x2F;cbe814ae6aa5fd524c5d294edac3b78b2d0208a8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;cc&#x2F;0e&#x2F;cc0e19c330b2316dc148cac4880065c74fa129bd.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;09&#x2F;fc&#x2F;09fcc6395f5e847906076ecc42a9cb5ea46495aa.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;cd&#x2F;da&#x2F;cdda265054e38ef9c4f19e7335ce143bb3379e52.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;f0&#x2F;fb&#x2F;f0fbfebf37ca34f911eca5531a957050d1220dc4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;05&#x2F;5b&#x2F;055babbc3a6077d6d089f4f7783cf296106d8387.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;80&#x2F;e9&#x2F;80e961705bbd8d62ad99f335136280a3229b35ca.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;49&#x2F;48&#x2F;4948ce401eeab18dae0a602a89b746c3d9d7ebc8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;c3&#x2F;e1&#x2F;c3e125cf27ce374ab1c99da10725f09b056cf5e9.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;78&#x2F;be&#x2F;78be8e0ef94cad4fed7670f2523f532d3920866a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;a2&#x2F;69&#x2F;a26955a72d7b30995db1acbae5e09fd43c38d591.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;08&#x2F;b0&#x2F;08b0a38778ffafb3d207cc63a601f95ecc6e1cb8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;95&#x2F;d7&#x2F;95d7e8a6d4cac93f0d41e8b87c91270a71594b86.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ec&#x2F;70&#x2F;ec70acb33d24794a524684763797cd9d49c187c2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;c5&#x2F;5f&#x2F;c55f4dc79fed4ecddb1709fc7f856083ce6f4b9f.jpeg",];
 
-      const modifiedImageUrls = imageUrls.map(url => url.replace(/{size}/g, "1024x768"));
-
-      modifiedImageUrls.forEach(url => {
+      imageUrls.forEach(url => {
         const galleryItemHtml = `
           <div class="gallery__item">
             <img
               class="slide-image"
               src="${url}"
               alt="Photo of Location"
-              loading="lazy" />
+              loading="lazy"
+              width="595"
+              height="480"/>
           </div>
         `;
 
@@ -11649,6 +12235,62 @@
       //       "menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=400, width=600"
       //     );
       //   });
+    </script>
+    <script>
+      const searchBtn = document.querySelector(".search__button");
+      const searchForm = document.querySelector(".search__form");
+
+      document.addEventListener("click", (e) => {
+        const target = e.target;
+
+        if (
+          !target.closest(".search__button") &&
+          !target.closest(".search__form")
+        ) {
+          searchForm.classList.remove("active");
+          searchBtn.classList.remove("active");
+        }
+      });
+
+      searchBtn.addEventListener("click", (e) => {
+        const target = e.target;
+
+        if (target.closest(".search__button")) {
+          searchForm.classList.toggle("active");
+          searchBtn.classList.toggle("active");
+        }
+      });
+    </script>
+    <script>
+      const searchFields = document.querySelectorAll(".search__item");
+
+      for (const searchField of searchFields) {
+        const searchInput = searchField.querySelector(".search__item_input");
+        const clearBtn = searchField.querySelector(".clear");
+
+        searchInput.addEventListener("input", () => {
+          const inputData = searchInput.value.trim();
+          clearBtn.classList.toggle("visible", inputData !== "");
+        });
+      }
+    </script>
+    <script>
+      const searchInputClearBtns = document.querySelectorAll(
+        ".search__form .clear"
+      );
+
+      searchInputClearBtns.forEach((clearBtn) => {
+        clearBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const input = clearBtn
+            .closest(".search__item_content")
+            .querySelector(".search__item_input");
+
+          input.value = "";
+          clearBtn.classList.remove("visible");
+        });
+      });
     </script>
   </body>
 </html>

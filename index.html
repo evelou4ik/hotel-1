@@ -245,7 +245,7 @@
         border-radius: 1rem;
         border: 1px solid var(--grey-200);
         color: var(--primary);
-        transition-property: background-color border-color color;
+        transition-property: background-color, border-color, color;
         transition-duration: var(--fast);
       }
 
@@ -253,7 +253,8 @@
         fill: currentColor;
       }
 
-      .search__button:hover {
+      .search__button:hover,
+      .search__button.active {
         background-color: var(--primary);
         border-color: transparent;
         color: var(--white);
@@ -824,7 +825,9 @@
         position: relative;
         border-radius: 1rem;
         margin-right: 3.55rem;
-        min-width: 33.3rem;
+        max-width: 33.3rem;
+        width: 100%;
+        height: 19.6rem;
       }
 
       .room__img_wrapper svg {
@@ -841,6 +844,7 @@
 
       .room__img_wrapper .slide-image {
         display: none;
+        object-fit: cover;
       }
 
       .room__img_wrapper .slide-image:nth-child(2) {
@@ -2096,6 +2100,106 @@
         margin-bottom: 0;
       }
 
+      .search__form {
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        top: 7rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: 100%;
+        transition-property: opacity, visibility;
+        transition-duration: var(--fast);
+        pointer-events: none;
+      }
+
+      .search__form_inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background-color: var(--white);
+        box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.5);
+        border-radius: 1.6rem;
+        overflow: hidden;
+      }
+
+      .search__item:not(:last-child) {
+        margin-right: 1rem;
+      }
+
+      .search__item_content {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        padding: 1rem;
+        border-radius: 1rem;
+        border: 1px solid var(--grey-200);
+        height: 5rem;
+      }
+
+      .search__item_icon {
+        display: flex;
+        margin-right: 1rem;
+      }
+
+      .search__item_input {
+        width: 100%;
+        outline: none;
+        border: 0;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: var(--grey-500);
+      }
+
+      .search__item .clear {
+        visibility: hidden;
+        opacity: 0;
+        transition-property: visibility, opacity;
+        transition-duration: var(--fast);
+        pointer-events: none;
+      }
+
+      .search__item .clear.visible {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .search__item .clear span {
+        display: flex;
+      }
+
+      .search__form_submit {
+        min-width: 20rem;
+        height: 5rem;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        font-weight: 500;
+        color: var(--white);
+        background-color: var(--primary);
+        text-transform: uppercase;
+        border-radius: 1rem;
+        transition-property: background-color;
+        transition-duration: var(--fast);
+      }
+
+      .search__form_submit:hover {
+        background-color: var(--primary-hover);
+      }
+
+      .search__dropdown_result {
+        display: none;
+      }
+
+      .search__form.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+
       @media only screen and (max-width: 1199px) {
         html {
           font-size: 53%;
@@ -2547,6 +2651,16 @@
           margin-left: -3rem;
           width: 1.6rem;
           height: 1.6rem;
+        }
+
+        .search__form_inner {
+          flex-direction: column;
+        }
+
+        .search__item:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 1.5rem;
+          width: 100%;
         }
       }
 
@@ -3087,9 +3201,7 @@
             </li>
           </ul>
         </div>
-        <div
-          class="gallery slider-images "
-          id="product_gallery">
+        <div class="gallery slider-images" id="product_gallery">
           <div class="gallery__grid"></div>
           <button class="gallery__btn">
             <span>
@@ -3407,8 +3519,7 @@
                 </li> -->
               </ul>
             </section>
-            <section
-              class="rooms border-bottom border-gray ">
+            <section class="rooms border-bottom border-gray">
               <h2>Rooms at this hotel</h2>
               <ul class="rooms__list">
                 <li class="rooms__item room">
@@ -3425,24 +3536,137 @@
                     </svg>
                     <img
                       class="slide-image"
-                      src="img/room_1.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8d&#x2F;5c&#x2F;8d5c16eaeed16410ec84142206d4cb252b8ca6c4.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_2.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;46&#x2F;71&#x2F;46711b6a2ecd845a1fbdb955dd8ca6cde47ed398.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_3.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;1d&#x2F;7b&#x2F;1d7b6daf6984a931e054ca3915063ac8e772f1c8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                     <img
                       class="slide-image"
-                      src="img/room_4.jpg"
-                      alt="Standart King Room"
-                      loading="lazy" />
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;5f&#x2F;70&#x2F;5f70c7943ab92cf29e2601e68c28ed10cf452b92.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b4&#x2F;fb&#x2F;b4fb3a397b64f77b56bbd7a958882e0d033cc1e2.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;be&#x2F;5d&#x2F;be5d166a5cc49a61bb4bb65c1772a081754798e8.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;54&#x2F;a5&#x2F;54a519f6968dc0deb5830b36baf0d9e40da89966.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;30&#x2F;69&#x2F;306936e2bd04d50968a2fc83cd38dec9e5c1f897.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;72&#x2F;zz&#x2F;72ad811749392b3f09dd7898628be9d531946f5c.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;e9&#x2F;69&#x2F;e96927072aa6f4e926e57ed4f1eace8c6cb2bae2.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;19&#x2F;12&#x2F;19129c0bee1dc516b1045ace96116f4594d53edf.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ce&#x2F;ed&#x2F;ceedb2fdc488f69b4b1b0211c3752fc14736b6a1.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;86&#x2F;b78625bcb2528cc6c809c130d377fc7b26c28aa2.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;2a&#x2F;32&#x2F;2a320ba34bd0fd11ac7392a360988f8de9852c8f.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;19&#x2F;a7&#x2F;19a7d7be3df40d73457a6fd1d3629f8b4be3b54f.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;0d&#x2F;91&#x2F;0d9147c358932646beb72ead102419ab08b75f20.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;55&#x2F;9c&#x2F;559c7e9333678ecb9b3f2a5884798f6e62055c63.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;6a&#x2F;14&#x2F;6a145ac0400e51617fccf9d0fe6535a60fbbb47a.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
+                    <img
+                      class="slide-image"
+                      src="https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8f&#x2F;da&#x2F;8fda22df4fa96880d07bffcb9ac004c58d627fed.jpeg"
+                      alt="Room photo"
+                      loading="lazy"
+                      width="333"
+                      height="196" />
                   </div>
                   <div class="room__content">
                     <h3>Standard room</h3>
@@ -3840,8 +4064,7 @@
                 </li> -->
               </ul>
             </section>
-            <section
-              class="points border-bottom border-gray ">
+            <section class="points border-bottom border-gray">
               <div class="points__content_wrapper">
                 <!-- <div class="points__item">
                   <h2>General Facilites</h2>
@@ -5185,8 +5408,7 @@
                     <span>Prices from £200 / night</span>
                   </div>
                 </li> -->
-                <li
-                  class="locations__list_item ">
+                <li class="locations__list_item">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -7272,6 +7494,7 @@
         <div class="container">
           <div class="footer__top">
             <div class="footer__top_element">
+              А
               <p class="footer__top_title">About Evendo</p>
               <ul>
                 <li>
@@ -7457,6 +7680,190 @@
         </div>
       </div>
     </footer>
+    <div class="search__form">
+      <div class="container">
+        <div class="search__form_inner">
+          <div class="search__form_item search__item">
+            <div class="search__item_content">
+              <span class="search__item_icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_447_3544)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M6.45283 1.83276C7.02474 0.457765 8.97395 0.457765 9.54586 1.83276L10.7462 4.7196L13.8612 4.96922C13.8612 4.96922 13.8613 4.96923 13.8612 4.96922C15.3467 5.08807 15.9486 6.94142 14.8173 7.91085L12.4438 9.94439L13.1684 12.9844C13.1684 12.9843 13.1684 12.9844 13.1684 12.9844C13.514 14.4337 11.9381 15.5789 10.667 14.8028L7.99935 13.1734L5.33189 14.8027C4.06045 15.5789 2.4847 14.4329 2.83025 12.9845C2.83023 12.9846 2.83027 12.9844 2.83025 12.9845L3.55491 9.94439L1.18144 7.91089C0.0501068 6.94146 0.651772 5.08808 2.13727 4.96924C2.13721 4.96924 2.13733 4.96923 2.13727 4.96924L5.25253 4.7196L6.45283 1.83276ZM5.80353 5.47801L2.20116 5.76668C1.42523 5.82868 1.11059 6.79668 1.70187 7.30335L4.44631 9.65468L3.60838 13.17C3.42773 13.9267 4.25099 14.5253 4.91494 14.12L7.99935 12.236L11.0838 14.12C11.7477 14.5253 12.571 13.9273 12.3903 13.17L11.5524 9.65468L14.2968 7.30335C14.8881 6.79668 14.5735 5.82868 13.7975 5.76668L10.1952 5.47801L8.80728 2.14001C8.50864 1.42201 7.49006 1.42201 7.19141 2.14001L5.80353 5.47801Z"
+                      fill="#8B8899" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_447_3544">
+                      <rect width="15.9987" height="16" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+
+              <input
+                class="search__item_input"
+                type="text"
+                autocomplete="off"
+                placeholder="What?"
+                id="search_input_what" />
+
+              <button class="clear">
+                <span>
+                  <svg
+                    width="28px"
+                    height="28px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g
+                      fill="#0000006b"
+                      fill-rule="evenodd"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      transform="translate(2 2)">
+                      <circle cx="8.5" cy="8.5" r="8" />
+                      <g transform="matrix(0 1 -1 0 17 0)">
+                        <path d="m5.5 11.5 6-6" />
+                        <path d="m5.5 5.5 6 6" />
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div class="search__dropdown_result">
+              <div class="categoryDropdown">
+                <input id="category-search" />
+              </div>
+            </div>
+          </div>
+
+          <div class="search__form_item search__item">
+            <div class="search__item_content">
+              <span class="search__item_icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.99951 7C9.99951 7.53043 9.7888 8.03914 9.41373 8.41421C9.03865 8.78929 8.52994 9 7.99951 9C7.46908 9 6.96037 8.78929 6.5853 8.41421C6.21023 8.03914 5.99951 7.53043 5.99951 7C5.99951 6.46957 6.21023 5.96086 6.5853 5.58579C6.96037 5.21071 7.46908 5 7.99951 5C8.52994 5 9.03865 5.21071 9.41373 5.58579C9.7888 5.96086 9.99951 6.46957 9.99951 7Z"
+                    stroke="#8B8899"
+                    stroke-width="0.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M12.9989 7C12.9989 11.7613 7.99934 14.5 7.99934 14.5C7.99934 14.5 2.99976 11.7613 2.99976 7C2.99976 5.67392 3.5265 4.40215 4.4641 3.46447C5.4017 2.52678 6.67337 2 7.99934 2C9.32531 2 10.597 2.52678 11.5346 3.46447C12.4722 4.40215 12.9989 5.67392 12.9989 7Z"
+                    stroke="#8B8899"
+                    stroke-width="0.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <input
+                class="search__item_input"
+                type="text"
+                autocomplete="off"
+                placeholder="Where?"
+                id="search_input_where" />
+              <button class="clear">
+                <span>
+                  <svg
+                    width="28px"
+                    height="28px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g
+                      fill="#0000006b"
+                      fill-rule="evenodd"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      transform="translate(2 2)">
+                      <circle cx="8.5" cy="8.5" r="8" />
+                      <g transform="matrix(0 1 -1 0 17 0)">
+                        <path d="m5.5 11.5 6-6" />
+                        <path d="m5.5 5.5 6 6" />
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </div>
+
+            <div class="locationContainer">
+              <div class="locationModal"></div>
+            </div>
+          </div>
+
+          <div class="search__form_item search__item">
+            <div class="search__item_content">
+              <span class="search__item_icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.49979 2V3.5M11.4992 2V3.5M2 12.5V5C2 4.60218 2.15802 4.22064 2.4393 3.93934C2.72058 3.65804 3.10208 3.5 3.49988 3.5H12.4991C12.8969 3.5 13.2784 3.65804 13.5597 3.93934C13.841 4.22064 13.999 4.60218 13.999 5V12.5M2 12.5C2 12.8978 2.15802 13.2794 2.4393 13.5607C2.72058 13.842 3.10208 14 3.49988 14H12.4991C12.8969 14 13.2784 13.842 13.5597 13.5607C13.841 13.2794 13.999 12.8978 13.999 12.5M2 12.5V7.5C2 7.10218 2.15802 6.72065 2.4393 6.43934C2.72058 6.15804 3.10208 6 3.49988 6H12.4991C12.8969 6 13.2784 6.15804 13.5597 6.43934C13.841 6.72065 13.999 7.10218 13.999 7.5V12.5M7.9995 8.5H8.00483V8.50533H7.9995V8.5ZM7.9995 10H8.00483V10.0053H7.9995V10ZM7.9995 11.5H8.00483V11.5053H7.9995V11.5ZM6.49963 10H6.50496V10.0053H6.49963V10ZM6.49963 11.5H6.50496V11.5053H6.49963V11.5ZM4.99975 10H5.00508V10.0053H4.99975V10ZM4.99975 11.5H5.00508V11.5053H4.99975V11.5ZM9.49938 8.5H9.50471V8.50533H9.49938V8.5ZM9.49938 10H9.50471V10.0053H9.49938V10ZM9.49938 11.5H9.50471V11.5053H9.49938V11.5ZM10.9993 8.5H11.0046V8.50533H10.9993V8.5ZM10.9993 10H11.0046V10.0053H10.9993V10Z"
+                    stroke="#8B8899"
+                    stroke-width="0.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+
+              <input
+                class="search__item_input"
+                type="text"
+                autocomplete="off"
+                id="search_input_calendar"
+                placeholder="When?" />
+
+              <button class="clear">
+                <span>
+                  <svg
+                    width="28px"
+                    height="28px"
+                    viewBox="0 0 21 21"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g
+                      fill="#0000006b"
+                      fill-rule="evenodd"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      transform="translate(2 2)">
+                      <circle cx="8.5" cy="8.5" r="8" />
+                      <g transform="matrix(0 1 -1 0 17 0)">
+                        <path d="m5.5 11.5 6-6" />
+                        <path d="m5.5 5.5 6 6" />
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <button
+            class="search__form_submit"
+            id="search_submit"
+            type="submit"
+            name="submit">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="product-carousel fix-block">
       <div class="product-carousel__wrapper">
         <button class="carousel_btn carousel_btn__prev carousel_btn__switch">
@@ -7559,22 +7966,24 @@
           .join(', ');
       };
 
-       payments.innerHTML = formatPaymentMethods(paymentMethods)
+      if(payments) {
+        payments.innerHTML = formatPaymentMethods(paymentMethods)
+      }
     </script>
     <script>
       const galleryContainer = document.querySelector(".gallery__grid");
-      const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8d&#x2F;5c&#x2F;8d5c16eaeed16410ec84142206d4cb252b8ca6c4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;46&#x2F;71&#x2F;46711b6a2ecd845a1fbdb955dd8ca6cde47ed398.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;89&#x2F;2e&#x2F;892e26686af217791ece51b7c8242366e7621bbe.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;5f&#x2F;70&#x2F;5f70c7943ab92cf29e2601e68c28ed10cf452b92.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b4&#x2F;fb&#x2F;b4fb3a397b64f77b56bbd7a958882e0d033cc1e2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;be&#x2F;5d&#x2F;be5d166a5cc49a61bb4bb65c1772a081754798e8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;54&#x2F;a5&#x2F;54a519f6968dc0deb5830b36baf0d9e40da89966.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;30&#x2F;69&#x2F;306936e2bd04d50968a2fc83cd38dec9e5c1f897.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;72&#x2F;zz&#x2F;72ad811749392b3f09dd7898628be9d531946f5c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;e9&#x2F;69&#x2F;e96927072aa6f4e926e57ed4f1eace8c6cb2bae2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;19&#x2F;12&#x2F;19129c0bee1dc516b1045ace96116f4594d53edf.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;ce&#x2F;ed&#x2F;ceedb2fdc488f69b4b1b0211c3752fc14736b6a1.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;b7&#x2F;86&#x2F;b78625bcb2528cc6c809c130d377fc7b26c28aa2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;2a&#x2F;32&#x2F;2a320ba34bd0fd11ac7392a360988f8de9852c8f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;19&#x2F;a7&#x2F;19a7d7be3df40d73457a6fd1d3629f8b4be3b54f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;0d&#x2F;91&#x2F;0d9147c358932646beb72ead102419ab08b75f20.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;55&#x2F;9c&#x2F;559c7e9333678ecb9b3f2a5884798f6e62055c63.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;6a&#x2F;14&#x2F;6a145ac0400e51617fccf9d0fe6535a60fbbb47a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8f&#x2F;da&#x2F;8fda22df4fa96880d07bffcb9ac004c58d627fed.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;8c&#x2F;c3&#x2F;8cc3d06c84cb165fc751bec6ce888a3d6fb01703.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;3d&#x2F;83&#x2F;3d83561921566f557280596135ba7cfc3791c105.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;{size}&#x2F;content&#x2F;c8&#x2F;9b&#x2F;c89bb4077783fc17fe795afbfb13e383bc0730ce.jpeg",];
+      const imageUrls = ["https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8d&#x2F;5c&#x2F;8d5c16eaeed16410ec84142206d4cb252b8ca6c4.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;46&#x2F;71&#x2F;46711b6a2ecd845a1fbdb955dd8ca6cde47ed398.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;89&#x2F;2e&#x2F;892e26686af217791ece51b7c8242366e7621bbe.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;5f&#x2F;70&#x2F;5f70c7943ab92cf29e2601e68c28ed10cf452b92.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b4&#x2F;fb&#x2F;b4fb3a397b64f77b56bbd7a958882e0d033cc1e2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;be&#x2F;5d&#x2F;be5d166a5cc49a61bb4bb65c1772a081754798e8.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;54&#x2F;a5&#x2F;54a519f6968dc0deb5830b36baf0d9e40da89966.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;30&#x2F;69&#x2F;306936e2bd04d50968a2fc83cd38dec9e5c1f897.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;72&#x2F;zz&#x2F;72ad811749392b3f09dd7898628be9d531946f5c.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;e9&#x2F;69&#x2F;e96927072aa6f4e926e57ed4f1eace8c6cb2bae2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;19&#x2F;12&#x2F;19129c0bee1dc516b1045ace96116f4594d53edf.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;ce&#x2F;ed&#x2F;ceedb2fdc488f69b4b1b0211c3752fc14736b6a1.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;b7&#x2F;86&#x2F;b78625bcb2528cc6c809c130d377fc7b26c28aa2.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;2a&#x2F;32&#x2F;2a320ba34bd0fd11ac7392a360988f8de9852c8f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;19&#x2F;a7&#x2F;19a7d7be3df40d73457a6fd1d3629f8b4be3b54f.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;0d&#x2F;91&#x2F;0d9147c358932646beb72ead102419ab08b75f20.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;55&#x2F;9c&#x2F;559c7e9333678ecb9b3f2a5884798f6e62055c63.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;6a&#x2F;14&#x2F;6a145ac0400e51617fccf9d0fe6535a60fbbb47a.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8f&#x2F;da&#x2F;8fda22df4fa96880d07bffcb9ac004c58d627fed.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;8c&#x2F;c3&#x2F;8cc3d06c84cb165fc751bec6ce888a3d6fb01703.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;3d&#x2F;83&#x2F;3d83561921566f557280596135ba7cfc3791c105.jpeg","https:&#x2F;&#x2F;cdn.worldota.net&#x2F;t&#x2F;1024x768&#x2F;content&#x2F;c8&#x2F;9b&#x2F;c89bb4077783fc17fe795afbfb13e383bc0730ce.jpeg",];
 
-      const modifiedImageUrls = imageUrls.map(url => url.replace(/{size}/g, "1024x768"));
-
-      modifiedImageUrls.forEach(url => {
+      imageUrls.forEach(url => {
         const galleryItemHtml = `
           <div class="gallery__item">
             <img
               class="slide-image"
               src="${url}"
               alt="Photo of Location"
-              loading="lazy" />
+              loading="lazy"
+              width="595"
+              height="480"/>
           </div>
         `;
 
@@ -7906,6 +8315,62 @@
       //       "menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=400, width=600"
       //     );
       //   });
+    </script>
+    <script>
+      const searchBtn = document.querySelector(".search__button");
+      const searchForm = document.querySelector(".search__form");
+
+      document.addEventListener("click", (e) => {
+        const target = e.target;
+
+        if (
+          !target.closest(".search__button") &&
+          !target.closest(".search__form")
+        ) {
+          searchForm.classList.remove("active");
+          searchBtn.classList.remove("active");
+        }
+      });
+
+      searchBtn.addEventListener("click", (e) => {
+        const target = e.target;
+
+        if (target.closest(".search__button")) {
+          searchForm.classList.toggle("active");
+          searchBtn.classList.toggle("active");
+        }
+      });
+    </script>
+    <script>
+      const searchFields = document.querySelectorAll(".search__item");
+
+      for (const searchField of searchFields) {
+        const searchInput = searchField.querySelector(".search__item_input");
+        const clearBtn = searchField.querySelector(".clear");
+
+        searchInput.addEventListener("input", () => {
+          const inputData = searchInput.value.trim();
+          clearBtn.classList.toggle("visible", inputData !== "");
+        });
+      }
+    </script>
+    <script>
+      const searchInputClearBtns = document.querySelectorAll(
+        ".search__form .clear"
+      );
+
+      searchInputClearBtns.forEach((clearBtn) => {
+        clearBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const input = clearBtn
+            .closest(".search__item_content")
+            .querySelector(".search__item_input");
+
+          input.value = "";
+          clearBtn.classList.remove("visible");
+        });
+      });
     </script>
   </body>
 </html>
